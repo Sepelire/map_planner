@@ -49,6 +49,26 @@ canvas {
     padding-right: 50px;
     width: 45vh;
     height: 91vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Стили для полосы прокрутки */
+.task-list::-webkit-scrollbar {
+    width: 12px; /* Ширина полосы прокрутки */
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Цвет фона полосы прокрутки */
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: #888888; /* Цвет ползунка */
+    border-radius: 6px; /* Скругление углов ползунка */
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: #f1a742; /* Цвет ползунка при наведении */
 }
 
 ol {
