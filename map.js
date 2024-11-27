@@ -215,6 +215,36 @@ canvas.addEventListener('mousedown', (e) => {
     }
 });
 
+function highlightTask(index) {
+    const taskItems = document.querySelectorAll('#taskList li');
+    if (!taskItems || !taskItems[index]) return;
+
+    // Убираем подсветку со всех элементов
+    taskItems.forEach(item => item.classList.remove('highlighted'));
+
+    // Добавляем подсветку нужному элементу
+    const targetItem = taskItems[index];
+    targetItem.classList.add('highlighted');
+
+    // Прокручиваем контейнер к этому элементу
+    targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+canvas.addEventListener('click', (e) => {
+    const x = e.offsetX;
+    const y = e.offsetY;
+
+    // Проверяем, попали ли в круг
+    for (let i = 0; i < circles.length; i++) {
+        const circle = circles[i];
+        const dx = x - circle.x;
+        const dy = y - circle.y;
+        if (Math.sqrt(dx * dx + dy * dy) <= circle.radius) {
+            highlightTask(i); // Подсвечиваем соответствующий пункт
+            return;
+        }
+    }
+});
 
 // Обработчик для перетаскивания кругов
 canvas.addEventListener('mousemove', (e) => {
