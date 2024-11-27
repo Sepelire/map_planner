@@ -1,0 +1,317 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-size: 16px;
+    font-family: Century Gothic, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
+    width: 40vh;
+}
+
+canvas {
+    border: 1px solid #000;
+}
+
+.button {
+    padding: 10px 7px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-family: Century Gothic, sans-serif;
+    font-size: 16px;
+    width: 222px;
+}
+
+.button-s {
+    padding: 11px 10.5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: Century Gothic, sans-serif;
+    font-size: 33px;
+}
+
+.task-list {
+    margin-left: 20px;
+    padding-right: 50px;
+    width: 45vh;
+    height: 91vh;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+.list_title {
+    margin: 0;
+}
+
+#deleteCircleBtn {
+    background-color: #cf2750;
+}
+
+#deleteCircleBtn:hover {
+    background-color: #a91f3e;
+}
+
+#imageLoaderButton {
+    background-color: #41b1c2;
+}
+
+#imageLoaderButton:hover {
+    background-color: #3794a1;
+}
+
+#saveDataBtn {
+    background-color: #2dd333;
+}
+
+#saveDataBtn:hover {
+    background-color: #22a027;
+}
+
+#clearCanvasBtn {
+    background-color: #c445ff;
+}
+
+#clearCanvasBtn:hover {
+    background-color: #9735c4;
+}
+
+#loadDataBtn {
+    background-color: #ffeb4f;
+}
+
+#loadDataBtn:hover {
+    background-color: #ddcc44;
+}
+
+#radiusSlider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(to right, #f1a742 0%, #f1a742 13%, #ddd 13%, #ddd 100%);
+    border-radius: 5px;
+    outline: none;
+}
+
+#radiusSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 13px;
+    height: 16px;
+    border-radius: 25%;
+    background: #f1a742;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#radiusSlider::-webkit-slider-thumb:hover {
+    background: #f17442;
+    width: 17px;
+    height: 21px;
+}
+
+#radiusSlider:focus {
+    outline: none;
+}
+
+input[type="text"] {
+    width: 555px;
+    padding: 1px;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.task-list input[type="text"] {
+    border: 2px solid black; /* Цвет границы */
+    border-radius: 6px; /* Скругление углов */
+    padding: 8px; /* Внутренний отступ */
+    font-size: 16px; /* Размер шрифта */
+    width: 90%; /* Ширина текстового поля */
+    margin-left: 10px; /* Отступ от чекбокса */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Стиль при фокусе */
+.task-list input[type="text"]:focus {
+    border-color: #cf412a; /* Изменение цвета границы */
+    box-shadow: 0 0 10px rgb(255, 34, 0); /* Подсветка при фокусе */
+    outline: none; /* Убираем стандартный фокус */
+}
+
+/* Стиль чекбоксов */
+.task-list input[type="checkbox"] {
+    min-width: 24px;
+    width: 24px; /* Размер ширины */
+    height: 24px; /* Размер высоты */
+    flex-shrink: 0; /* Предотвращаем сжатие чекбокса */
+    accent-color: #2d8b45; /* Цвет галочки */
+    margin-right: 10px; /* Отступ от текста */
+    cursor: pointer; /* Курсор в виде руки */
+    transform: scale(1.2); /* Увеличиваем размер */
+}
+
+/* Увеличиваем высоту пунктов списка */
+.task-list li {
+    margin: 0 0 2px;
+    display: flex;
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.task-list span {
+    margin: 0 5px 0 0;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    flex-shrink: 0; /* Предотвращаем сжатие номера */
+    padding-top: 2px; /* Небольшой отступ сверху для выравнивания с textarea */
+}
+
+/* Стиль для редактируемого поля textarea */
+.task-list textarea {
+    margin: 0;
+    padding: 5px;
+    background-color: transparent; /* Без фона */
+    color: black; /* Темно-серый цвет текста */
+    font-size: 16px;
+    font-weight: normal;
+    border: none;
+    border-radius: 8px;
+    width: calc(40vh - 30px); /* Ширина равна ширине списка */
+    outline: none; /* Убираем контур */
+    resize: none; /* Запрещаем изменение размера */
+    transition: all 0.3s ease; /* Плавные переходы */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: Century Gothic, sans-serif;
+}
+
+/* Стили для контейнера textarea и кнопки */
+.task-list .textarea-container {
+    display: flex;
+    align-items: flex-start; /* Выравниваем по верхнему краю */
+    width: 40vh;
+}
+
+/* Стили для кнопки разворачивания */
+.task-list .expand-button {
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 20px;
+    padding: 0 5px;
+    color: #666;
+    flex-shrink: 0; /* Предотвращаем сжатие кнопки */
+    height: 24px; /* Фиксированная высота */
+    line-height: 24px; /* Выравнивание текста по центру */
+}
+
+/* Выполненные пункты */
+.task-list li.completed {
+    color: #2d8b45; /* Зелёный цвет текста */
+    font-weight: bold; /* Сделаем текст жирным */
+    text-decoration: line-through; /* Добавляем зачёркивание */
+}
+
+/* Стиль для тега p */
+.task-list p {
+    margin: 0;
+    padding: 5px 0 5px 10px;
+    background-color: transparent; /* Без фона */
+    color: rgb(194, 194, 194); /* Темно-серый цвет текста */
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 8px;
+    width: 223px;
+    outline: none; /* Убираем контур */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Стиль при фокусе на textarea */
+.task-list textarea:focus {
+    border-color: #cf412a; /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgb(255, 34, 0); /* Легкая подсветка при фокусе */
+}
+
+/* Стиль для текста в textarea при выполнении */
+.task-list textarea.completed {
+    background-color: #d4f7d4; /* Светло-зеленый фон */
+    color: #2d8b45; /* Зеленый текст */
+    font-weight: bold;
+    text-decoration: line-through; /* Зачеркнутый текст */
+}
+
+/* Выполненные пункты для текста в p */
+.task-list p.completed {
+    background-color: #d4f7d4; /* Светло-зеленый фон */
+    color: #2d8b45; /* Зеленый цвет текста */
+    font-weight: bold;
+    text-decoration: line-through; /* Зачеркнутый текст */
+}
+
+/* Стиль модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Поверх всего */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content .button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmBtn {
+    background-color: #ff0605;
+    color: white;
+}
+
+#confirmBtn:hover {
+    background-color: #b10000;
+}
+
+#cancelBtn {
+    background-color: #2daa45;
+    color: white;
+}
+
+#cancelBtn:hover {
+    background-color: #247836;
+}

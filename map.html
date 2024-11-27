@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="map.css">
+    <title>Построение пути на изображении карты</title>
+</head>
+<body>
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p>Вы уверены, что хотите удалить все точки?</p>
+            <button id="confirmBtn" class="button">Да</button>
+            <button id="cancelBtn" class="button">Нет</button>
+        </div>
+    </div>
+    <h1 style="margin-top: 0;">Построение пути на изображении карты</h1>
+    <div class="container">
+        <div class="controls">
+            <label for="imageLoader" id="imageLoaderButton" class="button" style="width: 208px; text-align: center;">Открыть карту</label>
+            <input type="file" id="imageLoader" accept="image/*" style="display: none;">
+            <button id="deleteCircleBtn" class="button">Удалить последний пункт</button>
+            <div style="background-color:#001fff; border-radius:12px; padding: 5px 6px 0 1px; margin-bottom: 12px">
+                <label for="radiusInput" style="font-size: 16px; padding: 0 0 0 7%; color: white">Радиус точки на карте:</label>
+                <div class="inputer" style="display: flex">
+                    <input type="range" id="radiusSlider" min="5" max="50" value="10" style="margin: 11px 6px 10px; width: 162px; background-color:#f1e742">
+                    <input type="number" id="radiusInput" min="5" max="50" value="10" style="width: 33px; margin: 0 0 5px 0; font-size: 16px;">
+                </div>
+            </div>
+            <div style="display: flex">
+                <button id="saveDataBtn" class="button-s">💾</button>
+                <button id="clearCanvasBtn" class="button-s" style="margin: 0 12px">💥</button>
+                <button id="loadDataBtn" class="button-s">📤</button>
+            </div>
+        </div>
+        <canvas id="canvas" width="666" height="666"></canvas>
+        <div class="task-list">
+            <h2 class="list_title">Список дел:</h2>
+            <ol id="taskList"></ol>
+        </div>
+    </div>
+    
+    <script src="map.js"></script>
+    <script src="map-task-list.js"></script>
+</body>
+</html>
