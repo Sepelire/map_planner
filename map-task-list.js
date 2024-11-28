@@ -1,6 +1,5 @@
 // Обновляем список задач (перечень кругов)
 function updateTaskList() {
-    debugger;
     if (!taskList || !Array.isArray(circles)) {
         console.error('taskList или circles не определены');
         return;
@@ -22,6 +21,7 @@ function updateTaskList() {
 
         const checkbox = createCheckbox(circle, listItem);
         const numberSpan = document.createElement('span');
+        numberSpan.classList.add('forHighlight')
         numberSpan.textContent = `${index + 1}.`;
 
         if (typeof circle.isExpanded === 'undefined') {
@@ -41,7 +41,6 @@ function updateTaskList() {
 }
 
 function createCheckbox(circle, listItem) {
-    debugger;
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = circle.checked || false;
@@ -277,7 +276,6 @@ function toggleExpandButtonVisibility(textarea, expandButton) {
 }
 
 function adjustHeight(textarea) {
-    debugger;
     // Проверяем, находится ли textarea в развёрнутом состоянии
     if (textarea.dataset.expanded !== 'true') {
         textarea.style.height = '19px';

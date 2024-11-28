@@ -216,7 +216,7 @@ canvas.addEventListener('mousedown', (e) => {
 });
 
 function highlightTask(index) {
-    const taskItems = document.querySelectorAll('#taskList li');
+    const taskItems = document.querySelectorAll('li span');
     if (!taskItems || !taskItems[index]) return;
 
     // Убираем подсветку со всех элементов
@@ -259,6 +259,7 @@ canvas.addEventListener('mousemove', (e) => {
         drawCircles();
     }
 });
+
 // Обработчик завершения перетаскивания круга
 canvas.addEventListener('mouseup', () => {
     isDragging = false;
@@ -379,8 +380,8 @@ loadDataBtn.addEventListener('click', () => {
                     const image = new Image();
                     image.onload = function() {
                         try {
-                            const maxWidth = window.innerWidth * 0.9;
-                            const maxHeight = window.innerHeight * 0.9;
+                            const maxWidth = window.innerWidth * 0.91;
+                            const maxHeight = window.innerHeight * 0.91;
                             let imgWidth = image.width;
                             let imgHeight = image.height;
                             const scaleFactor = Math.min(maxWidth / imgWidth, maxHeight / imgHeight);
